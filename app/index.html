@@ -134,12 +134,12 @@
 
       <div class="field">
         <label>Место требования<br><span class="small">куда нужна справка</span></label>
-        <input type="text" placeholder="Общежитие, пенсионный фонд, мфц" required/>
+        <input type="text" name="organization" placeholder="Общежитие, пенсионный фонд, мфц" required/>
       </div>
 
       <div class="field">
         <label>E-mail<br><span class="small">для уведомления</span></label>
-        <input type="email" placeholder="student@sfedu.ru"/>
+        <input type="email" name="email" placeholder="student@sfedu.ru"/>
       </div>
 
       <hr>
@@ -157,13 +157,14 @@
       </ul>
 
       <div class="field">
-        <input type="submit" class="send" value="Отправить заявку"/>
+        <input type="submit" name="submit" class="send" value="Отправить заявку"/>
       </div>
 
     </div>
     </form>
 
     <!-- build:js scripts/main.min.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
   </body>

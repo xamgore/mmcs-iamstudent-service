@@ -55,4 +55,20 @@
   }
 
   // Your custom JavaScript goes here
+  const $ = s => document.querySelector(s)
+  const $$ = s => Array.from(document.querySelectorAll(s))
+
+  $('form').onsubmit = e => {
+    e.preventDefault();
+
+    const getValue = node => ({ [node.name]: node.value })
+    const raw = Object.assign(...$$('input,select').map(getValue))
+
+    axios.post('/', {
+      ...raw, grade: +raw.grade, group: +raw.group, order: +raw.order
+    })
+    .then(_ => document.location.href = '/ready.html')
+    .catch(e => alert(e))
+  }
+
 })();

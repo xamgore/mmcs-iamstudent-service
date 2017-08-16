@@ -26,3 +26,4 @@ yarn build    # generate html+css+js to dist/ folder
 - [ ] Генерация pdf, docx
 - [ ] Интеграция с 1С
 - [ ] Интеграция с [БРС](https://grade.sfedu.ru/)
+- [ ] Спам фильтр reCAPTCHA

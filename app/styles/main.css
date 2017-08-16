@@ -82,6 +82,20 @@ ul {
   padding-left: 0.5em;
 }
 
+p:first-child {
+  margin-top: 2rem
+}
+
+a {
+  text-decoration: none;
+  color: #2196f3;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
 @media screen and (max-width: 600px) {
   .field { flex-direction: column }
 
@@ -105,5 +119,9 @@ ul {
   .send {
     margin-top: 0;
     margin-bottom: 2em;
+  }
+
+  p:first-child {
+    margin-top: 1em;
   }
 }
