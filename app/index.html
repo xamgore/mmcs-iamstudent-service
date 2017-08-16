@@ -63,17 +63,19 @@
       <form method="get">
       <div class="field">
         <label>ФИО</label>
-        <input type="text" placeholder="Белоконь Александр Владимирович" required/>
+        <input type="text" name="name" placeholder="Белоконь Александр Владимирович" required/>
       </div>
 
       <div class="field">
-        <label>Номер зачётки</label>
-        <input type="text" placeholder="ММ-17-0217" required/>
+        <label>Дата рождения</label>
+        <input type="date" name="birth" required/>
       </div>
+
+      <br>
 
       <div class="field">
         <label>Курс</label>
-        <select required>
+        <select name="grade" required>
           <option value="1">1 бакалавр</option>
           <option value="2">2 бакалавр</option>
           <option value="3">3 бакалавр</option>
@@ -85,7 +87,7 @@
 
       <div class="field">
         <label>Группа</label>
-        <select required>
+        <select name="group" required>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -99,11 +101,41 @@
       </div>
 
       <div class="field">
+        <label>Форма обучения</label>
+        <select name="type" required>
+          <option value="бюджет">бюджет</option>
+          <option value="коммерция">коммерция</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Дата поступления</label>
+        <input type="date" name="admission" required/>
+      </div>
+
+      <br>
+
+      <div class="field">
+        <label>Номер зачётки<br><span class="small">или студенческого</span></label>
+        <input type="text" name="gradebook" placeholder="ММ-17-0217" required/>
+      </div>
+
+      <div class="field">
+        <label>Приказ о зачислении</label>
+        <input type="number" name="order" placeholder="11245" required/>
+      </div>
+
+      <div class="field">
+        <label>Дата приказа</label>
+        <input type="date" name="orderDate" required/>
+      </div>
+
+      <!-- <hr> -->
+
+      <div class="field">
         <label>Место требования<br><span class="small">куда нужна справка</span></label>
         <input type="text" placeholder="Общежитие, пенсионный фонд, мфц" required/>
       </div>
-
-      <hr>
 
       <div class="field">
         <label>E-mail<br><span class="small">для уведомления</span></label>

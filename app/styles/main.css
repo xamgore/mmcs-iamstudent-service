@@ -40,6 +40,7 @@ label {
   min-width: 30%;
   text-align: right;
   font-size: 0.9em;
+  line-height: 0.95;
 }
 
 hr {
@@ -48,12 +49,14 @@ hr {
   margin: 1.5em 0;
 }
 
-input[type=text], select {
+input[type=text], input[type="date"], input[type=number], select {
   text-align: left;
   width: 100%;
   padding: 0.5em;
   height: 2.6em;
 }
+
+input[type=date]:invalid { color: gray }
 
 .field {
   display: flex;
