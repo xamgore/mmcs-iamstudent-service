@@ -1,0 +1,106 @@
+/*
+Note: any .css or .scss files included in the 'styles' directory
+will be correctly compiled during `gulp serve` and `gulp`
+ */
+
+* { box-sizing: inherit; }
+
+html, body {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.page {
+  max-width: 550px;
+  height: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.small {
+  font-size: 0.75em;
+  color: #555;
+  text-align: right;
+}
+
+h1 {
+  margin-bottom: 0.5em;
+}
+
+label {
+  display: block;
+  margin: 0 1em 0 0;
+  width: 30%;
+  min-width: 30%;
+  text-align: right;
+  font-size: 0.9em;
+}
+
+hr {
+  border: 0;
+  border-top: 2px solid #eee;
+  margin: 1.5em 0;
+}
+
+input[type=text], select {
+  text-align: left;
+  width: 100%;
+  padding: 0.5em;
+  height: 2.6em;
+}
+
+.field {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5em 0;
+  align-items: center;
+}
+
+.send {
+  margin: 1em 0;
+  margin-right: 1em;
+  margin-left: auto;
+  padding: 0.4em 0.7em;
+  cursor: pointer;
+}
+
+li {
+  margin-bottom: 0.5em;
+  font-size: 0.85em;
+}
+
+ul {
+  padding-left: 0.5em;
+}
+
+@media screen and (max-width: 600px) {
+  .field { flex-direction: column }
+
+  label {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    width: 100%;
+    margin: inherit;
+  }
+
+  label .small::before {
+    content: '(';
+    padding-left: 0.3em;
+  }
+
+  label .small::after {
+    content: ')';
+  }
+
+  .send {
+    margin-top: 0;
+    margin-bottom: 2em;
+  }
+}
