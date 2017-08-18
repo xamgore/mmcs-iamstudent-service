@@ -54,19 +54,56 @@
     });
   }
 
-  // Your custom JavaScript goes here
+
+  // extract data of the form
+  const getFormData = inputs => {
+    const getValue = node => ({ [node.name]: node.value })
+    const raw = Object.assign(...inputs.map(getValue))
+    return { ...raw, grade: +raw.grade, group: +raw.group, order: +raw.order }
+  }
+
+
   const $ = s => document.querySelector(s)
   const $$ = s => Array.from(document.querySelectorAll(s))
 
+
+  // save each change to the local storage
+  const rawStore = window.localStorage.getItem('data')
+  const store = rawStore && JSON.parse(rawStore)
+  const inputs = $$('input, select')
+
+  inputs.forEach(node => {
+    if (store && store[node.name]) node.value = store[node.name]
+    node.addEventListener('change', e => {
+      window.localStorage.setItem('data', JSON.stringify(getFormData(inputs)))
+    })
+  })
+
+
+  // change the admission when grade was selected
+  const updateAdmission = grade => {
+    const today = new Date().getFullYear()
+    const yearsAgo = grade <= 4 ? grade : (grade - 4)
+    const admission = new Date(today - yearsAgo, 8, 1)
+    const isAutumn = new Date().getMonth() + 1 >= 9
+
+    const year = admission.getFullYear() + isAutumn
+    const month = (admission.getMonth() + 1).toString().padStart(2, '0')
+    const day = (admission.getDate()).toString().padStart(2, '0')
+
+    $('input[name=admission]').value = `${year}-${month}-${day}`
+  }
+
+  const $grade = $('select[name=grade]')
+  $grade.addEventListener('change', e => updateAdmission(e.target.value))
+  updateAdmission($grade.value)
+
+
+  // catch form submition and send via ajax
   $('form').onsubmit = e => {
     e.preventDefault();
 
-    const getValue = node => ({ [node.name]: node.value })
-    const raw = Object.assign(...$$('input,select').map(getValue))
-
-    axios.post('/', {
-      ...raw, grade: +raw.grade, group: +raw.group, order: +raw.order
-    })
+    axios.post('/', getFormData(inputs))
     .then(_ => document.location.href = '/ready.html')
     .catch(e => alert(e))
   }
